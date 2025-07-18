@@ -5,6 +5,8 @@ import 'package:islami_app/modules/onboarding/on_boarding.dart';
 import 'package:islami_app/modules/splash/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'modules/quran/widgets/quran_data_view.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -32,6 +34,7 @@ class MyApp extends StatelessWidget {
         SplashScreen.routeName : (context) => const SplashScreen(),
         HomeScreen.routeName : (context) => const HomeScreen(),
         OnboardingScreen.routeName: (context) => const OnboardingScreen(),
+        QuranDataView.routeName: (context) => QuranDataView(),
       },
 
     );

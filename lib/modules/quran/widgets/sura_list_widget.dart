@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/core/constants/sura_constraint_list.dart';
 import 'package:islami_app/modules/quran/widgets/sura_list_item.dart';
 
 class SuraListWidget extends StatelessWidget {
@@ -14,9 +15,10 @@ class SuraListWidget extends StatelessWidget {
           ListView.separated(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context,index){
-                return SuraListItem();
-              },
+              itemBuilder: (context,index){eturn SuraListItem(
+                suraDataModel: SuraConstraintList.suraData[index],
+              );
+            }},
               separatorBuilder: (context,index){
                 return Divider(
                 indent: 40,
@@ -24,7 +26,7 @@ class SuraListWidget extends StatelessWidget {
                 thickness: 2,
               );
               },
-              itemCount: 114)
+              itemCount: SuraConstraintList.suraData.length)
         ],
       ),
     );

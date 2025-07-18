@@ -20,4 +20,7 @@ abstract class IslamiImages{
   static const String onboarding4 = "assets/images/onboarding4.png";
   static const String onboarding5 = "assets/images/onboarding5.png";
 
+  static const String cornerRight = "assets/images/corner right.png";
+  static const String cornerLeft = "assets/images/corner left.png";
+  static const String bottomShape = "assets/images/bottom shape.png";
 }
