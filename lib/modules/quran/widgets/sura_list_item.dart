@@ -1,26 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/core/constants/islami_images.dart';
+import 'package:islami_app/models/sura_data_model.dart';
+import 'package:islami_app/modules/quran/widgets/quran_data_view.dart';
 
 class SuraListItem extends StatelessWidget {
-  const SuraListItem({super.key});
+  final SuraDataModel suraDataModel;
+
+  const SuraListItem({super.key, required this.suraDataModel});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      // color: Colors.red,
+    return InkWell(
+      onTap: () {
+        //TODO : navigate to QuranView
+        Navigator.pushNamed(
+            context, QuranDataView.routeName, arguments: suraDataModel);
+      },
       child: Row(
         children: [
           Container(
-            width: 40,
-            height: 40,
+            width: 50,
+            height: 50,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               image: DecorationImage(image: AssetImage(IslamiImages.suraNumber)),
             ),
             child: Text(
-              "1",
-              style: Theme.of(context).textTheme.bodyLarge,
+              suraDataModel.suraID,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(
+                fontSize: (int.parse(suraDataModel.suraID) >= 100)
+                    ? 12 : 16,
+              ),
             ),
           ),
           SizedBox(width: 20,),
@@ -30,17 +44,20 @@ class SuraListItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Al-Fatiha",
+                  suraDataModel.suraNameEN,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18),
                 ),Text(
-                  "7 Verses",
-                  style: Theme.of(context).textTheme.bodySmall,
+                  "${suraDataModel.suraVersesNumber} Verses",
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyMedium,
                 ),
               ],
             ),
           ),
           Text(
-            "الفاتحة",
+            suraDataModel.suraNameAR,
             style: Theme.of(context).textTheme.bodyLarge,
           )
 

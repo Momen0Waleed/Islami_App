@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/core/constants/islami_colors.dart';
 
-abstract class IslamiThemeManager{
+abstract class IslamiThemeManager {
   static ThemeData islamiThemeData = ThemeData(
     primaryColor: IslamiColors.gold,
     scaffoldBackgroundColor: IslamiColors.black,
+    appBarTheme: AppBarTheme(
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      iconTheme: IconThemeData(color: IslamiColors.gold),
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        fontSize: 24,
+        fontFamily: "Janna",
+        fontWeight: FontWeight.w700,
+        color: IslamiColors.gold,
+      ),
+    ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
       backgroundColor: IslamiColors.gold,
@@ -16,7 +28,7 @@ abstract class IslamiThemeManager{
         fontSize: 12,
         fontFamily: "Janna",
       ),
-        unselectedItemColor: IslamiColors.black,
+      unselectedItemColor: IslamiColors.black,
     ),
     textTheme: TextTheme(
       titleLarge: TextStyle(
@@ -49,6 +61,12 @@ abstract class IslamiThemeManager{
         fontWeight: FontWeight.w700,
         color: IslamiColors.white,
       ),
-    )
+      titleMedium: TextStyle(
+        fontSize: 20,
+        fontFamily: "Janna",
+        fontWeight: FontWeight.w700,
+        color: IslamiColors.gold,
+      ),
+    ),
   );
 }
