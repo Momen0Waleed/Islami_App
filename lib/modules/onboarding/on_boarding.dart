@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:islami_app/core/constants/islami_colors.dart';
 import 'package:islami_app/core/constants/islami_images.dart';
 import 'package:islami_app/modules/home/home_screen.dart';
@@ -50,38 +49,30 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+      floatingActionButton: _currentPage != _numPages - 1
+          ? FloatingActionButton(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        onPressed: () {
+          _completeOnboarding();
+        },
+        child: Text(
+          "Skip",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: IslamiColors.gold,
+            fontSize: 20,
+          ),
+        ),
+      ) : Text(""),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          // crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            // Skip button
-            _currentPage != _numPages - 1
-            ? Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 10.0,
-                horizontal: 20,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      _completeOnboarding();
-                    },
-                    child: Text(
-                      "Skip",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: IslamiColors.gold,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ) : Text(""),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -103,10 +94,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           width: double.infinity,
                         ),
                         Image.asset(IslamiImages.onboarding1),
-                        Text(
-                          "Welcome To Islmi App",
-                          style: Theme.of(context).textTheme.titleLarge!
-                              .copyWith(color: IslamiColors.gold),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 15.0),
+                          child: Text(
+                            "Welcome To Islmi App",
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .titleLarge!
+                                .copyWith(color: IslamiColors.gold),
+                          ),
                         ),
                       ],
                     ),
@@ -170,7 +167,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                         Image.asset(IslamiImages.onboarding4),
                         Text(
-                          "Bearish",
+                          "Sebha",
                           style: Theme.of(context).textTheme.titleLarge!
                               .copyWith(color: IslamiColors.gold),
                         ),
@@ -236,6 +233,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ? IslamiColors.disabledIndicator
                             : IslamiColors.gold,
                         fontWeight: FontWeight.bold,
+                          fontSize: 18
                       ),
                     ),
                   ),
@@ -259,6 +257,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       style: TextStyle(
                         color: IslamiColors.gold,
                         fontWeight: FontWeight.bold,
+                          fontSize: 18
                       ),
                     ),
                   ),
