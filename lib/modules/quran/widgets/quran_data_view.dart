@@ -21,7 +21,10 @@ class _QuranDataViewState extends State<QuranDataView> {
     if (ayat.isEmpty) loadQuranDataFromAssets(data.suraID);
     return Scaffold(
       appBar: AppBar(
-          title: Text(data.suraNameEN), forceMaterialTransparency: true),
+
+        title: Text(data.suraNameEN),
+        forceMaterialTransparency: true,
+      ),
       body: Stack(
         children: [
           Column(

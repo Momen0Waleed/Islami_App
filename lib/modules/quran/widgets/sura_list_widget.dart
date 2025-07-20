@@ -8,7 +8,7 @@ class SuraListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: Column(
         children: [
           Text("Sura List", style: Theme.of(context).textTheme.bodyLarge),
