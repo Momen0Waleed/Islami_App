@@ -19,7 +19,6 @@ class _HadithCardWidgetState extends State<HadithCardWidget> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //TODO navigate th extended hadith
         Navigator.pushNamed(
           context,
           HadithDataView.routeName,
@@ -55,7 +54,6 @@ class _HadithCardWidgetState extends State<HadithCardWidget> {
                       ),
                       Expanded(
                         child: Text(
-                          //TODO HadithName
                           HadithDataConstraints
                               .hadithData[widget.hadithID]
                               .hadithName,
@@ -91,7 +89,6 @@ class _HadithCardWidgetState extends State<HadithCardWidget> {
                   child: Column(
                     children: [
                       Text(
-                        //TODO the hadithContent
                         HadithDataConstraints
                             .hadithData[widget.hadithID]
                             .hadithContent,
