@@ -23,4 +23,6 @@ abstract class IslamiImages{
   static const String cornerRight = "assets/images/corner right.png";
   static const String cornerLeft = "assets/images/corner left.png";
   static const String bottomShape = "assets/images/bottom shape.png";
+
+  static const String hadithCardImage = "assets/images/hadith card image.png";
 }

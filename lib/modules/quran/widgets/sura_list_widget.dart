@@ -11,14 +11,15 @@ class SuraListWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
       child: Column(
         children: [
-          Text("Suar List",style: Theme.of(context).textTheme.bodyLarge,),
-          ListView.separated(
+          Text("Sura List", style: Theme.of(context).textTheme.bodyLarge),
+          LListView.separated(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context,index){eturn SuraListItem(
-                suraDataModel: SuraConstraintList.suraData[index],
+              itemBuilder: (context, index) {
+                return SuraListItem(
+                  suraDataModel: SuraConstraintList.suraData[index],
               );
-            }},
+              },
               separatorBuilder: (context,index){
                 return Divider(
                 indent: 40,

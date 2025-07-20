@@ -12,7 +12,6 @@ class SuraListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //TODO : navigate to QuranView
         Navigator.pushNamed(
             context, QuranDataView.routeName, arguments: suraDataModel);
       },

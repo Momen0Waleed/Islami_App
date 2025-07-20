@@ -7,7 +7,7 @@ import 'package:islami_app/models/sura_data_model.dart';
 class QuranDataView extends StatefulWidget {
   static const String routeName = "QuranDataView";
 
-  QuranDataView({super.key});
+  const QuranDataView({super.key});
 
   @override
   State<QuranDataView> createState() => _QuranDataViewState();
@@ -18,9 +18,10 @@ class _QuranDataViewState extends State<QuranDataView> {
   Widget build(BuildContext context) {
     final data = ModalRoute.of(context)!.settings.arguments as SuraDataModel;
 
-    if (ayat.isEmpty) loadDataFromAssets(data.suraID);
+    if (ayat.isEmpty) loadQuranDataFromAssets(data.suraID);
     return Scaffold(
-      appBar: AppBar(title: Text(data.suraNameEN)),
+      appBar: AppBar(
+          title: Text(data.suraNameEN), forceMaterialTransparency: true),
       body: Stack(
         children: [
           Column(
@@ -48,7 +49,8 @@ class _QuranDataViewState extends State<QuranDataView> {
           Padding(
             padding: const EdgeInsets.only(left: 10, right: 10, top: 90.0),
             child: ayat.isEmpty
-                ? Center(child: CircularProgressIndicator())
+                ? Center(
+                child: CircularProgressIndicator(color: IslamiColors.gold,))
                 : SingleChildScrollView(
                     child: Column(
                       children: [
@@ -97,7 +99,7 @@ class _QuranDataViewState extends State<QuranDataView> {
   List<String> ayat = [];
   String basmalah = "";
 
-  Future<void> loadDataFromAssets(String suraID) async {
+  Future<void> loadQuranDataFromAssets(String suraID) async {
     String content = await rootBundle.loadString("assets/files/$suraID.txt");
     ayat = content.trim().split("\n");
     if (suraID != "9" && suraID != "1") {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/core/constants/islami_theme_manager.dart';
+import 'package:islami_app/modules/hadith/widgets/hadith_data_view.dart';
 import 'package:islami_app/modules/home/home_screen.dart';
 import 'package:islami_app/modules/onboarding/on_boarding.dart';
 import 'package:islami_app/modules/splash/splash_screen.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName : (context) => const HomeScreen(),
         OnboardingScreen.routeName: (context) => const OnboardingScreen(),
         QuranDataView.routeName: (context) => QuranDataView(),
+        HadithDataView.routeName: (context) => HadithDataView(),
       },
 
     );
