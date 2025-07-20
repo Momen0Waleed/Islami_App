@@ -12,7 +12,7 @@ class SuraListWidget extends StatelessWidget {
       child: Column(
         children: [
           Text("Sura List", style: Theme.of(context).textTheme.bodyLarge),
-          LListView.separated(
+          ListView.separated(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
