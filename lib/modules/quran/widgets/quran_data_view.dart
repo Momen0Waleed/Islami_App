@@ -20,7 +20,10 @@ class _QuranDataViewState extends State<QuranDataView> {
 
     if (ayat.isEmpty) loadDataFromAssets(data.suraID);
     return Scaffold(
-      appBar: AppBar(title: Text(data.suraNameEN)),
+      appBar: AppBar(
+        title: Text(data.suraNameEN),
+        forceMaterialTransparency: true,
+      ),
       body: Stack(
         children: [
           Column(
@@ -48,7 +51,9 @@ class _QuranDataViewState extends State<QuranDataView> {
           Padding(
             padding: const EdgeInsets.only(left: 10, right: 10, top: 90.0),
             child: ayat.isEmpty
-                ? Center(child: CircularProgressIndicator())
+                ? Center(
+                    child: CircularProgressIndicator(color: IslamiColors.gold),
+                  )
                 : SingleChildScrollView(
                     child: Column(
                       children: [

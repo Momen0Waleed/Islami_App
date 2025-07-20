@@ -14,12 +14,11 @@ class SuraListWidget extends StatelessWidget {
           Text("Suar List",style: Theme.of(context).textTheme.bodyLarge,),
           ListView.separated(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context,index){eturn SuraListItem(
-                suraDataModel: SuraConstraintList.suraData[index],
-              );
-            }},
-              separatorBuilder: (context,index){
+              physics: NeverScrollableScrollPhysics(),temBuilder: (context, index) {
+              return SuraListItem(
+                ssuraDataModel: SuraConstraintList.suraData[index],
+              );,
+            sseparatorBuilder: (context,index){
                 return Divider(
                 indent: 40,
                 endIndent: 40,
