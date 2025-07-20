@@ -8,24 +8,23 @@ class SuraListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: Column(
         children: [
-          Text("Suar List",style: Theme.of(context).textTheme.bodyLarge,),
+          Text("Suar List", style: Theme.of(context).textTheme.bodyLarge),
           ListView.separated(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),temBuilder: (context, index) {
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
               return SuraListItem(
-                ssuraDataModel: SuraConstraintList.suraData[index],
-              );,
-            sseparatorBuilder: (context,index){
-                return Divider(
-                indent: 40,
-                endIndent: 40,
-                thickness: 2,
+                suraDataModel: SuraConstraintList.suraData[index],
               );
-              },
-              itemCount: SuraConstraintList.suraData.length)
+            },
+            separatorBuilder: (context, index) {
+              return Divider(indent: 40, endIndent: 40, thickness: 2);
+            },
+            itemCount: SuraConstraintList.suraData.length,
+          ),
         ],
       ),
     );
