@@ -28,4 +28,9 @@ abstract class IslamiImages{
 
   static const String sebha = "assets/icons/Sebha.png";
   static const String headOfSebha = "assets/icons/head of the sebha.png";
+
+  static const String radioWidgetBackground =
+      "assets/images/radio widget background.png";
+  static const String radioVoiceWavesBackground =
+      "assets/images/radio voice waves background.png";
 }
