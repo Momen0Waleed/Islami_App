@@ -3,7 +3,6 @@ import 'package:islami_app/core/constants/islami_colors.dart';
 import 'package:islami_app/core/constants/islami_images.dart';
 import 'package:islami_app/modules/onboarding/on_boarding.dart';
 
-import '../home/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/core/constants/islami_colors.dart';
 import 'package:islami_app/core/constants/islami_images.dart';
-import 'package:islami_app/core/constants/islami_theme_manager.dart';
 import 'package:islami_app/modules/quran/widgets/recently_sura_widget.dart';
 import 'package:islami_app/modules/quran/widgets/sura_list_widget.dart';
 
