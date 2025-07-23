@@ -33,4 +33,9 @@ abstract class IslamiImages{
       "assets/images/radio widget background.png";
   static const String radioVoiceWavesBackground =
       "assets/images/radio voice waves background.png";
+
+  static const String leftCornerSalaHeader =
+      "assets/images/leftCornerSalaHeader.png";
+  static const String rightCornerSalaHeader =
+      "assets/images/rightCornerSalaHeader.png";
 }
