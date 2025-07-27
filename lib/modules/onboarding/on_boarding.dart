@@ -264,7 +264,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       ),
     );
-  }oid _completeOnboarding() async {
+  }
+
+  void _completeOnboarding() async {
     await LocalStorageServices.setBool(
       LocalStorageKeys.onboardingSeenKey,
       true,
