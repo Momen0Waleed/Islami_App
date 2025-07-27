@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/core/constants/islami_colors.dart';
 
 class SalaFooterWidget extends StatefulWidget {
-  const SalaFooterWidget({super.key});
+  const SalaFooterWidget({super.key, required this.boxHeight});
+
+  final double boxHeight;
 
   @override
   State<SalaFooterWidget> createState() => _SalaFooterWidgetState();
@@ -17,7 +19,7 @@ class _SalaFooterWidgetState extends State<SalaFooterWidget> {
     return Container(
       alignment: Alignment.center,
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      // height: 50,
+      height: widget.boxHeight * 0.2,
       width: double.infinity,
       decoration: BoxDecoration(
         color: IslamiColors.gold,
