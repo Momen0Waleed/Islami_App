@@ -27,15 +27,13 @@ class MyApp extends StatelessWidget {
       theme: IslamiThemeManager.islamiThemeData,
       initialRoute: OnboardingScreen.routeName,
       routes: {
-        SplashScreen.routeName : (context) => const SplashScreen(),
-        HomeScreen.routeName : (context) => const HomeScreen(),
+        SplashScreen.routeName: (context) => const SplashScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
         OnboardingScreen.routeName: (context) => const OnboardingScreen(),
         QuranDataView.routeName: (context) => QuranDataView(),
         HadithDataView.routeName: (context) => HadithDataView(),
         ZikrViewScreen.routeName: (context) => ZikrViewScreen(),
       },
-
     );
   }
 }
-

@@ -10,7 +10,7 @@ import 'package:islami_app/modules/quran/widgets/recently_sura_widget.dart';
 import 'package:islami_app/modules/quran/widgets/sura_list_widget.dart';
 
 class QuranView extends StatefulWidget {
-  QuranView({super.key});
+  const QuranView({super.key});
 
   @override
   State<QuranView> createState() => _QuranViewState();
@@ -19,10 +19,11 @@ class QuranView extends StatefulWidget {
 class _QuranViewState extends State<QuranView> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     loadRecentSuraData();
   }
+
+  String searchQuery = "";
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,12 @@ class _QuranViewState extends State<QuranView> {
             Image.asset(IslamiImages.quranPageLogo),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              child: TextField(
+              child: TextFormField(
+                onChanged: (value) {
+                  searchQuery = value;
+                  searchSura();
+                  setState(() {});
+                },
                 cursorColor: IslamiColors.gold,
                 decoration: InputDecoration(
                   hintText: "Sura Name",
@@ -70,27 +76,41 @@ class _QuranViewState extends State<QuranView> {
                 ),
               ),
             ),
-            recentSuraList.isNotEmpty
-                ? RecentlySuraWidget(
-                    suraDataList: recentSuraList,
-                    onSuraTap: onSuraTab,
-                  )
-                : Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
-                    ),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "No recent Sura yet",
-                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: IslamiColors.gold,
+
+            Visibility(
+              visible: searchQuery.isEmpty,
+              replacement: SuraListWidget(
+                onSuraTab: onSuraTab,
+                suraDataModel: searchSuraList,
+              ),
+              child: Column(
+                children: [
+                  recentSuraList.isNotEmpty
+                      ? RecentlySuraWidget(
+                          suraDataList: recentSuraList,
+                          onSuraTap: onSuraTab,
+                        )
+                      : Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 10,
+                          ),
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "No recent Sura yet",
+                              style: Theme.of(context).textTheme.bodyLarge!
+                                  .copyWith(color: IslamiColors.gold),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
+                  SuraListWidget(
+                    onSuraTab: onSuraTab,
+                    suraDataModel: SuraConstraintList.suraData,
                   ),
-            SuraListWidget(onSuraTab: onSuraTab),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -136,6 +156,18 @@ class _QuranViewState extends State<QuranView> {
     for (var index in recentSuraIndexList) {
       int indexInt = int.parse(index);
       recentSuraList.add(SuraConstraintList.suraData[indexInt]);
+    }
+  }
+
+  List<SuraDataModel> searchSuraList = [];
+
+  void searchSura() {
+    searchSuraList = [];
+    for (var sura in SuraConstraintList.suraData) {
+      if (sura.suraNameEN.toLowerCase().contains(searchQuery.toLowerCase()) ||
+          sura.suraNameAR.contains(searchQuery)) {
+        searchSuraList.add(sura);
+      }
     }
   }
 }
