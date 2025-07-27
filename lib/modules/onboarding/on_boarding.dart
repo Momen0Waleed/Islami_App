@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/core/constants/islami_colors.dart';
 import 'package:islami_app/core/constants/islami_images.dart';
 import 'package:islami_app/modules/home/home_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../core/services/local_storage_keys.dart';
+import '../../core/services/local_storage_services.dart';
 
 class OnboardingScreen extends StatefulWidget {
   static const String routeName = "onboarding";
@@ -23,12 +25,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       list.add(i == _currentPage ? _indicator(true) : _indicator(false));
     }
     return list;
-  }
-
-  void _completeOnboarding() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('onboarding_completed', true);
-    Navigator.pushReplacementNamed(context, HomeScreen.routeName);
   }
 
   Widget _indicator(bool isActive) {
@@ -268,5 +264,26 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       ),
     );
+  }
+
+  // void _completeOnboarding() {
+  //   LocalStorageServices.setBool(
+  //     LocalStorageKeys.onboardingSeenKey,
+  //     true,
+  //   );
+  //
+  //   // if (!mounted) return;
+  //
+  //   Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+  // }
+  Future<void> _completeOnboarding() async {
+    await LocalStorageServices.setBool(
+      LocalStorageKeys.onboardingSeenKey,
+      true,
+    );
+
+    if (!mounted) return;
+
+    Navigator.pushReplacementNamed(context, HomeScreen.routeName);
   }
 }

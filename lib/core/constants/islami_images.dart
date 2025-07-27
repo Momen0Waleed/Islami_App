@@ -23,4 +23,19 @@ abstract class IslamiImages{
   static const String cornerRight = "assets/images/corner right.png";
   static const String cornerLeft = "assets/images/corner left.png";
   static const String bottomShape = "assets/images/bottom shape.png";
+
+  static const String hadithCardImage = "assets/images/hadith card image.png";
+
+  static const String sebha = "assets/icons/Sebha.png";
+  static const String headOfSebha = "assets/icons/head of the sebha.png";
+
+  static const String radioWidgetBackground =
+      "assets/images/radio widget background.png";
+  static const String radioVoiceWavesBackground =
+      "assets/images/radio voice waves background.png";
+
+  static const String leftCornerSalaHeader =
+      "assets/images/leftCornerSalaHeader.png";
+  static const String rightCornerSalaHeader =
+      "assets/images/rightCornerSalaHeader.png";
 }

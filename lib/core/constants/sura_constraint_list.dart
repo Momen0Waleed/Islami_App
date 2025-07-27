@@ -2,7 +2,7 @@ import 'package:islami_app/models/sura_data_model.dart';
 
 abstract class SuraConstraintList {
   static List<String> arabicQuranSuras = [
-    "الفاتحه",
+    "الفاتحة",
     "البقرة",
     "آل عمران",
     "النساء",
@@ -359,13 +359,4 @@ abstract class SuraConstraintList {
       suraVersesNumber: ayaNumbers[index],
     ),
   );
-
-  // [
-  //   SuraDataModel(
-  //     suraID: "1",
-  //     suraNameAR: "suraNameAR",
-  //     suraNameEN: "suraNameEN",
-  //     suraVersesNumber: 'suraVersesNumber',
-  //   ),
-  // ];
 }

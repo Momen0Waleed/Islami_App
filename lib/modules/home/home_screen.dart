@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         showUnselectedLabels: false,
@@ -40,61 +41,61 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: ImageIcon(AssetImage(IslamiImages.mushafPageIcon)),
             label: "Quran",
             activeIcon: Container(
-              padding: EdgeInsets.symmetric(horizontal: 12,vertical: 4),
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
               decoration: BoxDecoration(
                 color: IslamiColors.gray,
-                borderRadius: BorderRadius.circular(16)
+                borderRadius: BorderRadius.circular(16),
               ),
-              child:  ImageIcon(AssetImage(IslamiImages.mushafPageIcon)),
-            )
+              child: ImageIcon(AssetImage(IslamiImages.mushafPageIcon)),
+            ),
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(IslamiImages.hadithPageIcon)),
             label: "Hadith",
-              activeIcon: Container(
-                padding: EdgeInsets.symmetric(horizontal: 12,vertical: 4),
-                decoration: BoxDecoration(
-                    color: IslamiColors.gray,
-                    borderRadius: BorderRadius.circular(16)
-                ),
-                child:  ImageIcon(AssetImage(IslamiImages.hadithPageIcon)),
-              )
+            activeIcon: Container(
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              decoration: BoxDecoration(
+                color: IslamiColors.gray,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: ImageIcon(AssetImage(IslamiImages.hadithPageIcon)),
+            ),
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(IslamiImages.sebhaPageIcon)),
             label: "Tasbeeh",
-              activeIcon: Container(
-                padding: EdgeInsets.symmetric(horizontal: 12,vertical: 4),
-                decoration: BoxDecoration(
-                    color: IslamiColors.gray,
-                    borderRadius: BorderRadius.circular(16)
-                ),
-                child:  ImageIcon(AssetImage(IslamiImages.sebhaPageIcon)),
-              )
+            activeIcon: Container(
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              decoration: BoxDecoration(
+                color: IslamiColors.gray,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: ImageIcon(AssetImage(IslamiImages.sebhaPageIcon)),
+            ),
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(IslamiImages.radioPageIcon)),
             label: "Radio",
-              activeIcon: Container(
-                padding: EdgeInsets.symmetric(horizontal: 12,vertical: 4),
-                decoration: BoxDecoration(
-                    color: IslamiColors.gray,
-                    borderRadius: BorderRadius.circular(16)
-                ),
-                child:  ImageIcon(AssetImage(IslamiImages.radioPageIcon)),
-              )
+            activeIcon: Container(
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              decoration: BoxDecoration(
+                color: IslamiColors.gray,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: ImageIcon(AssetImage(IslamiImages.radioPageIcon)),
+            ),
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(IslamiImages.salaTimePageIcon)),
             label: "Salah Time",
-              activeIcon: Container(
-                padding: EdgeInsets.symmetric(horizontal: 12,vertical: 4),
-                decoration: BoxDecoration(
-                    color: IslamiColors.gray,
-                    borderRadius: BorderRadius.circular(16)
-                ),
-                child:  ImageIcon(AssetImage(IslamiImages.salaTimePageIcon)),
-              )
+            activeIcon: Container(
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              decoration: BoxDecoration(
+                color: IslamiColors.gray,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: ImageIcon(AssetImage(IslamiImages.salaTimePageIcon)),
+            ),
           ),
         ],
       ),

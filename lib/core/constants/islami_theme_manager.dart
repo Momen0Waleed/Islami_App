@@ -7,7 +7,8 @@ abstract class IslamiThemeManager {
     scaffoldBackgroundColor: IslamiColors.black,
     appBarTheme: AppBarTheme(
       elevation: 0,
-      backgroundColor: Colors.transparent,
+      backgroundColor: IslamiColors.black,
+
       iconTheme: IconThemeData(color: IslamiColors.gold),
       centerTitle: true,
       titleTextStyle: TextStyle(
