@@ -11,7 +11,12 @@ class SuraListWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: Column(
         children: [
-          Text("Sura List", style: Theme.of(context).textTheme.bodyLarge),
+          Align(
+              alignment: Alignment.centerLeft,
+              child: Text("Sura List", style: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyLarge)),
           ListView.separated(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),

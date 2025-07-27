@@ -72,4 +72,8 @@ class QuranView extends StatelessWidget {
       ),
     );
   }
+
+  onSuraTab(int index) {
+
+  }
 }
