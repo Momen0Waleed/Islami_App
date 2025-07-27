@@ -4,7 +4,9 @@ import 'package:islami_app/core/constants/islami_colors.dart';
 import 'package:islami_app/modules/sala_time/widgets/sala_card_widget.dart';
 
 class SalaBodyWidget extends StatefulWidget {
-  const SalaBodyWidget({super.key});
+  const SalaBodyWidget({super.key, required this.boxHeight});
+
+  final double boxHeight;
 
   @override
   State<SalaBodyWidget> createState() => _SalaBodyWidgetState();
@@ -15,6 +17,8 @@ class _SalaBodyWidgetState extends State<SalaBodyWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: widget.boxHeight * 0.6,
+      padding: EdgeInsets.symmetric(vertical: 20),
       decoration: BoxDecoration(
         color: IslamiColors.gold,
         borderRadius: BorderRadius.only(
@@ -32,7 +36,7 @@ class _SalaBodyWidgetState extends State<SalaBodyWidget> {
           SalaCardWidget(salaName: "Ishaa", salaTime: "09:24", pm_am: "PM"),
         ],
         options: CarouselOptions(
-          height: MediaQuery.of(context).size.height * 0.2,
+          height: double.infinity,
           viewportFraction: 0.35,
           initialPage: 0,
           enableInfiniteScroll: true,
