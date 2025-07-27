@@ -19,8 +19,8 @@ class SalaCardWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
       // margin: EdgeInsets.symmetric(horizontal: 5),
-      width: 100,
-      height: 130,
+      width: 120,
+      height: MediaQuery.of(context).size.height * 0.3,
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           begin: Alignment.topLeft,

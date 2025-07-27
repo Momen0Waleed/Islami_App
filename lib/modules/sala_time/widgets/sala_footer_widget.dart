@@ -15,8 +15,9 @@ class _SalaFooterWidgetState extends State<SalaFooterWidget> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Container(
+      alignment: Alignment.center,
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      height: 50,
+      // height: 50,
       width: double.infinity,
       decoration: BoxDecoration(
         color: IslamiColors.gold,

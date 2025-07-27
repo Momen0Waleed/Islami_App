@@ -67,104 +67,110 @@ class _TasbehViewState extends State<TasbehView>
           fit: BoxFit.cover,
         ),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Image.asset(IslamiImages.quranPageLogo),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30.0),
-            child: Text(
-              "سبّح اسمَ رَبِّكَ الأَعلَى",
-              style: TextStyle(fontSize: 36, color: IslamiColors.white),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Image.asset(IslamiImages.quranPageLogo),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  "سبّح اسمَ رَبِّكَ الأَعلَى",
+                  style: TextStyle(fontSize: 36, color: IslamiColors.white),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
-          ),
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Column(
-                children: [
-                  finishedAzkar
-                      ? Padding(
-                          padding: EdgeInsets.only(top: 30),
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.6,
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير',
-                                style: TextStyle(
-                                  fontSize: 28,
-                                  color: IslamiColors.white,
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Column(
+                  children: [
+                    finishedAzkar
+                        ? Padding(
+                            padding: EdgeInsets.only(top: 25),
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  'لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير',
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                    color: IslamiColors.white,
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
-                                textAlign: TextAlign.center,
                               ),
                             ),
+                          )
+                        : Text(
+                            azkar[currentZikrIndex],
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 36,
+                              color: Colors.white,
+                            ),
                           ),
-                        )
-                      : Text(
-                          azkar[currentZikrIndex],
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 36,
-                            color: Colors.white,
-                          ),
-                        ),
-                  SizedBox(height: 20),
-                  !finishedAzkar
-                      ? Text(
-                          "$counter",
-                          style: const TextStyle(
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        )
-                      : Text(""),
-                ],
-              ),
-              GestureDetector(
-                onTap: rotateSebha,
-                child: AnimatedBuilder(
-                  animation: _controller,
-                  builder: (context, child) {
-                    return Transform.rotate(
-                      angle: _controller.value * 0.1,
-                      child: child,
-                    );
-                  },
-                  child: Image.asset(
-                    IslamiImages.sebha,
-                    height: MediaQuery.of(context).size.height * 0.5,
-                    // width: double.infinity,
+                    SizedBox(height: 20),
+                    !finishedAzkar
+                        ? Text(
+                            "$counter",
+                            style: const TextStyle(
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          )
+                        : Text(""),
+                  ],
+                ),
+                GestureDetector(
+                  onTap: rotateSebha,
+                  child: AnimatedBuilder(
+                    animation: _controller,
+                    builder: (context, child) {
+                      return Transform.rotate(
+                        angle: _controller.value * 0.1,
+                        child: child,
+                      );
+                    },
+                    child: Image.asset(
+                      IslamiImages.sebha,
+                      height: MediaQuery.of(context).size.height * 0.4,
+                      // width: double.infinity,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            if (finishedAzkar)
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: IslamiColors.gold,
+                ),
+
+                onPressed: () {
+                  setState(() {
+                    finishedAzkar = false;
+                    counter = 33;
+                    rotationCount = 0;
+                    currentZikrIndex = 0;
+                  });
+                },
+                child: Text(
+                  'Restart Tasbeh',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: IslamiColors.black,
                   ),
                 ),
               ),
-            ],
-          ),
-          if (finishedAzkar)
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: IslamiColors.gold,
-              ),
-
-              onPressed: () {
-                setState(() {
-                  finishedAzkar = false;
-                  counter = 33;
-                  rotationCount = 0;
-                  currentZikrIndex = 0;
-                });
-              },
-              child: Text(
-                'Restart Tasbeh',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: IslamiColors.black,
-                ),
-              ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }
