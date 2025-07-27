@@ -5,6 +5,9 @@ abstract class IslamiImages{
   static const String hadithPageIcon = "assets/icons/hadith pge icon.png";
   static const String sebhaPageIcon = "assets/icons/sebha page icon.png";
   static const String salaTimePageIcon = "assets/icons/sala time page icon.png";
+  static const String selectedDataBackground =
+      "assets/images/selectedDataBackground.png";
+
   static const String radioPageIcon = "assets/icons/radio page icon.png";
   static const String backgroundQuranListPage = "assets/images/Background quran list.png";
   static const String backgroundHadithPage = "assets/images/Background hadith.png";
