@@ -3,6 +3,10 @@ import 'package:islami_app/core/constants/islami_colors.dart';
 import 'package:islami_app/core/constants/islami_images.dart';
 import 'package:islami_app/modules/onboarding/on_boarding.dart';
 
+import '../../core/services/local_storage_keys.dart';
+import '../../core/services/local_storage_services.dart';
+import '../home/home_screen.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,10 +19,21 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 2),(){
-      Navigator.pushReplacementNamed(context,OnboardingScreen.routeName);
-    });
     super.initState();
+    _navigate();
+  }
+
+  void _navigate() async {
+    final hasSeenOnboarding = LocalStorageServices.getBool(
+        LocalStorageKeys.onboardingSeenKey) ?? false;
+    await Future.delayed(Duration(seconds: 2)); // splash delay
+
+    if (!mounted) return;
+
+    Navigator.pushReplacementNamed(
+      context,
+      hasSeenOnboarding ? HomeScreen.routeName : OnboardingScreen.routeName,
+    );
   }
   @override
   Widget build(BuildContext context) {

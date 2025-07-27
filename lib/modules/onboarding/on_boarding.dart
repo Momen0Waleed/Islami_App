@@ -266,11 +266,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  void _completeOnboarding() async {
+  // void _completeOnboarding() {
+  //   LocalStorageServices.setBool(
+  //     LocalStorageKeys.onboardingSeenKey,
+  //     true,
+  //   );
+  //
+  //   // if (!mounted) return;
+  //
+  //   Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+  // }
+  Future<void> _completeOnboarding() async {
     await LocalStorageServices.setBool(
       LocalStorageKeys.onboardingSeenKey,
       true,
     );
+
+    if (!mounted) return;
+
     Navigator.pushReplacementNamed(context, HomeScreen.routeName);
   }
 }

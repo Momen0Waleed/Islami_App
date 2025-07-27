@@ -6,38 +6,25 @@ import 'package:islami_app/modules/home/home_screen.dart';
 import 'package:islami_app/modules/onboarding/on_boarding.dart';
 import 'package:islami_app/modules/splash/splash_screen.dart';
 
-import 'core/services/local_storage_keys.dart';
 import 'modules/quran/widgets/quran_data_view.dart';
 import 'modules/sala_time/widgets/zikr_view_screen.dart';
 
 Future<void> main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await LocalStorageServices.init();
-  //
-  // runApp(const MyApp());
   WidgetsFlutterBinding.ensureInitialized();
   await LocalStorageServices.init();
 
-  final bool hasSeenOnboarding = LocalStorageServices.getBool(
-      LocalStorageKeys.onboardingSeenKey) ?? false;
-
-  runApp(MyApp(
-      initialRoute: hasSeenOnboarding ? HomeScreen.routeName : OnboardingScreen
-          .routeName));
-
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final String initialRoute;
-
-  const MyApp({super.key, required this.initialRoute});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: IslamiThemeManager.islamiThemeData,
-      initialRoute: initialRoute,
+      initialRoute: SplashScreen.routeName,
       routes: {
         SplashScreen.routeName: (context) => const SplashScreen(),
         HomeScreen.routeName: (context) => const HomeScreen(),

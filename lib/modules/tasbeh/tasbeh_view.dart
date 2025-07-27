@@ -28,15 +28,22 @@ class _TasbehViewState extends State<TasbehView>
     );
   }
 
+  bool finishedAzkar = false;
+
   void rotateSebha() {
-    if (_controller.isAnimating) return;
+    if (_controller.isAnimating || finishedAzkar) return;
 
     setState(() {
       counter--;
       if (counter == 0) {
-        counter = 33;
         rotationCount++;
-        currentZikrIndex = (currentZikrIndex + 1) % azkar.length;
+        if (rotationCount >= azkar.length) {
+          // Finished all azkar
+          finishedAzkar = true;
+        } else {
+          counter = 33;
+          currentZikrIndex = rotationCount % azkar.length;
+        }
       }
     });
 
@@ -63,9 +70,7 @@ class _TasbehViewState extends State<TasbehView>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset(
-            IslamiImages.quranPageLogo,
-          ),
+          Image.asset(IslamiImages.quranPageLogo),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 30.0),
             child: Text(
@@ -78,19 +83,43 @@ class _TasbehViewState extends State<TasbehView>
             children: [
               Column(
                 children: [
-                  Text(
-                    azkar[currentZikrIndex],
-                    style: const TextStyle(fontSize: 36, color: Colors.white),
-                  ),
+                  finishedAzkar
+                      ? Padding(
+                          padding: EdgeInsets.only(top: 30),
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.6,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                'لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير',
+                                style: TextStyle(
+                                  fontSize: 28,
+                                  color: IslamiColors.white,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        )
+                      : Text(
+                          azkar[currentZikrIndex],
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 36,
+                            color: Colors.white,
+                          ),
+                        ),
                   SizedBox(height: 20),
-                  Text(
-                    "$counter",
-                    style: const TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
+                  !finishedAzkar
+                      ? Text(
+                          "$counter",
+                          style: const TextStyle(
+                            fontSize: 36,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        )
+                      : Text(""),
                 ],
               ),
               GestureDetector(
@@ -105,16 +134,36 @@ class _TasbehViewState extends State<TasbehView>
                   },
                   child: Image.asset(
                     IslamiImages.sebha,
-                    height: MediaQuery
-                        .of(context)
-                        .size
-                        .height * 0.5,
+                    height: MediaQuery.of(context).size.height * 0.5,
                     // width: double.infinity,
                   ),
                 ),
               ),
             ],
           ),
+          if (finishedAzkar)
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: IslamiColors.gold,
+              ),
+
+              onPressed: () {
+                setState(() {
+                  finishedAzkar = false;
+                  counter = 33;
+                  rotationCount = 0;
+                  currentZikrIndex = 0;
+                });
+              },
+              child: Text(
+                'Restart Tasbeh',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: IslamiColors.black,
+                ),
+              ),
+            ),
         ],
       ),
     );

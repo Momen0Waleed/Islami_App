@@ -36,6 +36,7 @@ class _RadioViewState extends State<RadioView> {
           Image.asset(IslamiImages.quranPageLogo),
           Container(
             height: 40,
+            margin: EdgeInsets.symmetric(vertical: 15),
             width: double.infinity,
             decoration: BoxDecoration(
               color: IslamiColors.gray,

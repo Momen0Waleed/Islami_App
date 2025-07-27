@@ -60,7 +60,7 @@ class AzkarListWidget extends StatelessWidget {
               ),
             );
           },
-          itemCount: 8,
+          itemCount: azkarData.length,
         ),
       ],
     );

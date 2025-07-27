@@ -28,12 +28,18 @@ class SalaTimeView extends StatelessWidget {
               Image.asset(IslamiImages.quranPageLogo),
               SalaBoxWidget(),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                padding: const EdgeInsets.only(top: 20.0),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Azkar",
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(
+                        fontSize: 20
+                    ),
                     textAlign: TextAlign.left,
                   ),
                 ),
