@@ -23,7 +23,7 @@ class _RadioViewState extends State<RadioView> {
           .size
           .height,
       width: double.infinity,
-      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+      padding: EdgeInsets.only(top: 30, left: 20, right: 20),
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(IslamiImages.backgroundRadioPage),

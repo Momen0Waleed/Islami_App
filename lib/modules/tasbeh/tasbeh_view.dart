@@ -52,7 +52,7 @@ class _TasbehViewState extends State<TasbehView>
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 25),
+      padding: EdgeInsets.only(top: 30, left: 25, right: 25),
       width: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(

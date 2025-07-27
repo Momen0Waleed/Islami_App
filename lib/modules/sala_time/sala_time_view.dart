@@ -13,7 +13,7 @@ class SalaTimeView extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 30, horizontal: 25),
+        padding: EdgeInsets.only(top: 30, left: 25, right: 25),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(IslamiImages.backgroundSalaTimePage),
