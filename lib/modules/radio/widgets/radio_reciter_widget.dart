@@ -25,7 +25,7 @@ class _RadioReciterWidgetState extends State<RadioReciterWidget> {
         borderRadius: BorderRadius.circular(20),
       ),
       // width: double.infinity,
-      height: 130,
+      height: 150,
       child: Stack(
         children: [
           Align(
@@ -37,65 +37,70 @@ class _RadioReciterWidgetState extends State<RadioReciterWidget> {
                     width: double.infinity,
                   ),
           ),
-          Positioned.fill(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    widget.title,
-                    style: theme.textTheme.titleMedium!.copyWith(
-                      color: Colors.black,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      widget.title,
+                      style: theme.textTheme.titleMedium!.copyWith(
+                        color: Colors.black,
+                        fontSize: 24,
+                        height: 1.2,
+                      ),
+                      softWrap: true,
                     ),
                   ),
-                  Spacer(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // SizedBox(width: 30),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 50.0),
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              play = !play;
-                              isMute = false;
-                            });
-                          },
-                          child: Icon(
-                            play
-                                ? Icons.pause_rounded
-                                : Icons.play_arrow_rounded,
-                            color: Colors.black,
-                            size: 50,
-                          ),
+                ),
+                // Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // SizedBox(width: 30),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 50.0),
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            play = !play;
+                            isMute = false;
+                          });
+                        },
+                        child: Icon(
+                          play ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                          color: Colors.black,
+                          size: 50,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              if (play) {
-                                isMute = !isMute;
-                              }
-                            });
-                          },
-                          child: Icon(
-                            isMute
-                                ? Icons.volume_off_rounded
-                                : Icons.volume_up_rounded,
-                            color: Colors.black,
-                            size: 30,
-                          ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            if (play) {
+                              isMute = !isMute;
+                            }
+                          });
+                        },
+                        child: Icon(
+                          isMute
+                              ? Icons.volume_off_rounded
+                              : Icons.volume_up_rounded,
+                          color: Colors.black,
+                          size: 30,
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
