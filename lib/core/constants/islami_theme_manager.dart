@@ -38,6 +38,12 @@ abstract class IslamiThemeManager {
         fontWeight: FontWeight.w700,
         color: IslamiColors.black,
       ),
+      titleMedium: TextStyle(
+        fontSize: 20,
+        fontFamily: "Janna",
+        fontWeight: FontWeight.w700,
+        color: IslamiColors.gold,
+      ),
       titleSmall: TextStyle(
         fontSize: 14,
         fontFamily: "Janna",
@@ -61,12 +67,6 @@ abstract class IslamiThemeManager {
         fontFamily: "Janna",
         fontWeight: FontWeight.w700,
         color: IslamiColors.white,
-      ),
-      titleMedium: TextStyle(
-        fontSize: 20,
-        fontFamily: "Janna",
-        fontWeight: FontWeight.w700,
-        color: IslamiColors.gold,
       ),
     ),
   );
